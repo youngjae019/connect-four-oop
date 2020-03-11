@@ -5,15 +5,9 @@
  * board fills (tie)
  */
 
-//const WIDTH = 7;
-//const HEIGHT = 6;
-
-//let currPlayer = 1; // active player: 1 or 2
-//let board = []; // array of rows, each row is array of cells  (board[y][x])
-
 class Game {
-  constructor (p1, p2, height = 6, width = 7) {
-    this.players = [p1,p2];
+  constructor(p1, p2, height = 6, width = 7) {
+    this.players = [p1, p2];
     this.height = height;
     this.width = width;
     this.currPlayer = p1;
@@ -86,7 +80,7 @@ class Game {
   placeInTable(y, x) {
     const piece = document.createElement('div');
     piece.classList.add('piece');
-    piece.style.bakcgroundColor = this.currPlayer.color;
+    piece.style.backgroundColor = this.currPlayer.color;
     piece.style.top = -50 * (y + 2);
 
     const spot = document.getElementById(`${y}-${x}`);
