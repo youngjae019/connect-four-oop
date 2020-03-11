@@ -110,30 +110,30 @@ class Game {
     // place piece in board and add to HTML table
     this.board[y][x] = this.currPlayer;
     this.placeInTable(y, x);
+
+      // check for tie
+      if (this.board.every(row => row.every(cell => cell))) {
+        return this.endGame('Tie!');
+      }  
     
     // check for win
     if (this.checkForWin()) {
       this.gameOver = true;
       return this.endGame(`${this.currPlayer.color} player won!`);
     }
-    
-    // check for tie
-    if (this.board.every(row => row.every(cell => cell))) {
-      return this.endGame('Tie!');
-    }
       
     // switch players
-    this.currPlayer = 
-      this.currPlayer === this.players[0] ? this.players[1] : this.players[0];
-  }
+    this.currPlayer =
+      this.currPlayer === this.players[0] ? this.players[1] : this.players[0]; 
+    }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
 
   checkForWin() {
-    const _win = cells =>
       // Check four cells to see if they're all color of current player
       //  - cells: list of four (y, x) cells
       //  - returns true if all are legal coordinates & all match currPlayer
+    const _win = cells =>
       cells.every(
         ([y, x]) =>
           y >= 0 &&
