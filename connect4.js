@@ -123,7 +123,8 @@ class Game {
     }
       
     // switch players
-    this.currPlayer = this.players[0] ? this.players[1] : this.players[0];
+    this.currPlayer = 
+      this.currPlayer === this.players[0] ? this.players[1] : this.players[0];
   }
 
   /** checkForWin: check board cell-by-cell for "does a win start here?" */
